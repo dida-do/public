@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Handwriting recognition</title>
+		<link rel="stylesheet" href="styles.css">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	</head>
+	<body>
+		<div id="text-wrapper">
+				<input type="text" id="output" placeholder="Loading app..." />
+				<button id="clear-canvas">CLEAR</button>
+				<div id="input-wrapper">
+					<canvas id="input-canvas" width="28" height="28"></canvas>
+				</div>
+		</div>
+
+		<div id="canvas-wrapper">
+
+			<div id="drawing-mode-options">
+					<span class="info">30</span><input type="range" value="30" min="5" max="100" id="drawing-line-width">
+				</div>
+			<canvas id="handwriting"></canvas>
+		</div>
+		<!-- <canvas id="output" width="28" height="28"></canvas> -->
+		<script src="https://cdn.jsdelivr.net/npm/fabric@2.7.0/dist/fabric.min.js" async></script>
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.2/dist/tf.min.js"></script>
+		<script src="model.js"></script>
+		<script src="handwriting.js"></script>
+	</body>
+</html>

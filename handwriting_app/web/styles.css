@@ -1,0 +1,87 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+#text-wrapper {
+	width: 100%;
+	height: 100px;
+	background: black;
+}
+#output {
+	width: 86%;
+	height: 65px;
+	font-family: Menlo, "Lucida Sans", Monaco, monospace;
+	font-size: 36px;
+	background: black;
+	color: white;
+	letter-spacing: 6.3px;
+	float: left;
+	border: none;
+	text-align: left;
+	padding: 0 2%;
+}
+::placeholder {
+	color: #ddd;
+	letter-spacing: 0;
+}
+#clear-canvas {
+	width: 10%;
+	height: 100%;
+	float: right;
+	background: #999;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+}
+#clear-canvas:hover {
+	background: red;
+}
+#input-wrapper {
+	width: 90%;
+	height: 28px;
+	clear: left;
+	float: left;
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+#input-wrapper canvas, #input-wrapper img {
+	float: left;
+}
+#input-wrapper img:first-child {
+	width: 14px;
+}
+#canvas-wrapper {
+	position: relative;
+}
+
+#handwriting {
+	cursor: crosshair;
+	width: 100%;
+	height: 50%;
+}
+
+#drawing-mode {
+  margin-bottom: 10px;
+  vertical-align: top;
+  float: left;
+}
+#drawing-mode-options {
+  display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+  background: #fff;
+  padding: 10px;
+  z-index: 1;
+}
+label {
+  display: inline-block; width: 130px;
+}
+.info {
+  display: inline-block;
+  width: 25px;
+  background: #ffc;
+  display: none;
+}
