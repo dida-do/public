@@ -110,7 +110,7 @@ class Handwriting {
 	 */
 	bindEvents() {
 
-		this.outputEl.placeholder = "Draw something below..."
+		this.outputEl.placeholder = "Write below..."
 		this.clearEl.onclick = this.resetCanvas.bind(this)
 
 		this.drawingLineWidthEl.onchange = ({target}) => {

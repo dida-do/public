@@ -25,6 +25,7 @@ html, body {
 ::placeholder {
 	color: #ddd;
 	letter-spacing: 0;
+	font-size: smaller;
 }
 #clear-canvas {
 	width: 10%;
