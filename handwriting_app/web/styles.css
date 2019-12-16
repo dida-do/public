@@ -3,6 +3,7 @@ html, body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
 }
 #text-wrapper {
 	width: 100%;
@@ -35,6 +36,12 @@ html, body {
 	border: none;
 	color: #fff;
 	cursor: pointer;
+}
+@media (max-width: 600px) {
+	#clear-canvas span {
+		transform: rotate(90deg);
+		display: inline-block;
+	}
 }
 #clear-canvas:hover {
 	background: red;
