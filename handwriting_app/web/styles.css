@@ -45,10 +45,11 @@ html, body {
 	clear: left;
 	float: left;
 	overflow-y: hidden;
-	overflow-x: scroll;
 }
 #input-wrapper canvas, #input-wrapper img {
-	float: left;
+	display: inline-block;
+	width: 28px;
+	height: 28px;
 }
 #input-wrapper img:first-child {
 	width: 14px;
