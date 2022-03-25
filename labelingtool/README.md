@@ -7,7 +7,6 @@ This repository contains the code to run a simple labeling tool for image classi
 ## Requirements & Installation
 The following are required to run the tool:
 - Python 3
-- IPython
 - Jupyter
 - ipywidgets
 
