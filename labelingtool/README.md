@@ -11,9 +11,8 @@ The following are required to run the tool:
 - Jupyter
 - ipywidgets
 
-Run `pip install -e 'git+https://github.com/dida-do/public@labelingtool##egg=dida-labelingtool&subdirectory=labelingtool'` to install the tool in your python environment.
-
-Alternatively, you can install the contents of the `requirements.txt` file to set up all necessary dependencies.
+You can install the contents of the `requirements.txt` file to set up all necessary dependencies.
+Then, start up the notebook `run.ipynb` in Jupyter to use the tool.
 
 ## Contents
 
