@@ -1,0 +1,5 @@
+scikit-surprise
+scikit-learn
+matplotlib
+tqdm
+numpy
