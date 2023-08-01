@@ -1,0 +1,5 @@
+# ignore contents of these directories
+.venv/*
+
+# ignore these extensions
+*.csv
