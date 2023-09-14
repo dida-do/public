@@ -3,3 +3,5 @@
 
 # ignore these extensions
 *.csv
+*.zip
+*.pyc
