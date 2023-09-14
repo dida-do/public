@@ -1,20 +1,28 @@
-from xrocket.convolutions import MiniRocketConv
+import torch
+from torch import nn
+from xrocket.convolutions import RocketConv
 from xrocket.multichannel import ChannelMix
-from xrocket.thresholds import PPVThresholds
+from xrocket.pooling import PPVThresholds
 
 class DilationBlock(nn.Module):
     """MiniRocket block for transformation of timeseries at a single dilation value.
 
     This layer serves to perform the encoding of an input timeseries with a fixed
     dilation value.
-    I.e., a forward pass transforms a tensor of shape
-    (Batch * Channels * Timeobs) into a tensor of shape (Batch * (Features/Dilations)).
+    A DilationBlock consists of the following three sublayers:
+     - RocketConv
+     - ChannelMix
+     - PPVThresholds
+    A forward pass transforms a tensor of shape (Batch * Channels * Timeobs)
+    into a tensor of shape (Batch * (Features/Dilation)).
 
-    This implementation is based on:
+    This implementation is based on the descriptions in:
     Dempster, Angus, Daniel F. Schmidt, and Geoffrey I. Webb.
-    "MiniRocket: A very fast (almost) deterministic transform for time series classification."
-    In Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining,
-    pp. 248-257. 2021.
+    "Minirocket: A very fast (almost) deterministic transform for time series classification."
+    Proceedings of the 27th ACM SIGKDD conference on knowledge discovery & data mining. 2021.
+
+    The block structure deviates from the original paper and sublayers have differences as
+    explained in the respective implementations.
 
     Attributes:
         in_channels: Number of channels in each timeseries.
@@ -51,7 +59,7 @@ class DilationBlock(nn.Module):
         super().__init__()
 
         # set up constituent layers
-        self.conv = MiniRocketConv(
+        self.conv = RocketConv(
             in_channels=in_channels,
             dilation=dilation,
             kernel_length=kernel_length,
@@ -149,4 +157,3 @@ class DilationBlock(nn.Module):
             )
         ]
         return feature_names
-

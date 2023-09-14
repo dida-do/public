@@ -1,18 +1,23 @@
-from xrocket
+import math
+import torch
+from torch import nn
+from xrocket.block import DilationBlock
 
-class XMiniRocketX(nn.Module):
-    """MINImally RandOm Convolutional KErnel Transform Layer.
+class XRocket(nn.Module):
+    """Explainable ROCKET module for timeseries embeddings.
 
-    Serves to encode a multivariate timeseries into a fixed-length feature vector.
+    Serves to encode a (multivariate) timeseries into a fixed-length feature vector.
     I.e., a forward pass transforms a tensor of shape (Batch * Channels * Timeobs)
     into a tensor of shape (Batch * Features).
     The implementation is such that the origin of each feature can be traced.
 
-    This implementation is based on:
+    This implementation is based on the descriptions in:
     Dempster, Angus, Daniel F. Schmidt, and Geoffrey I. Webb.
-    "MiniRocket: A very fast (almost) deterministic transform for time series classification."
-    In Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining,
-    pp. 248-257. 2021.
+    "Minirocket: A very fast (almost) deterministic transform for time series classification."
+    Proceedings of the 27th ACM SIGKDD conference on knowledge discovery & data mining. 2021.
+
+    The implemented block structure deviates from the original paper but the calculations are
+    almost identical. Please refer to the sublayer implementations for details.
 
     Attributes:
         in_channels: Number of channels in each timeseries.
@@ -75,7 +80,7 @@ class XMiniRocketX(nn.Module):
         self.blocks = nn.ModuleList()
         for dilation in self.dilations:
             self.blocks.append(
-                MiniRocketDilationBlock(
+                DilationBlock(
                     in_channels=in_channels,
                     dilation=dilation,
                     num_thresholds=num_thresholds,

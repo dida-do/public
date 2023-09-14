@@ -2,7 +2,7 @@ import torch
 from torch import nn
 
 class ChannelMix(nn.Module):
-    """Channel mixing layer for MiniRocket transformation of timeseries.
+    """Channel mixing layer for ROCKET transformation of timeseries.
 
     This layer serves to select and interact the input channels to create uni-
     and multivariate feature sequences.
@@ -10,13 +10,12 @@ class ChannelMix(nn.Module):
     (Batch * Kernels * Channels * Timeobs) into a tensor of shape
     (Batch * Kernels * Combinations * Timeobs).
 
-    This implementation is based on:
+    This implementation is based on the descriptions in:
     Dempster, Angus, Daniel F. Schmidt, and Geoffrey I. Webb.
-    "MiniRocket: A very fast (almost) deterministic transform for time series classification."
-    In Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining,
-    pp. 248-257. 2021.
+    "Minirocket: A very fast (almost) deterministic transform for time series classification."
+    Proceedings of the 27th ACM SIGKDD conference on knowledge discovery & data mining. 2021.
 
-    In contrast to the paper, ALL channel combinations will be considered, not only
+    In contrast to the paper, all channel combinations will be considered, not only
     a randomly selected subset as in the original authors' implementation.
 
     Attributes:
@@ -103,4 +102,3 @@ class ChannelMix(nn.Module):
     def combinations(self) -> list:
         """A list of the channel weightings considered."""
         return self.weight.reshape(-1, self.in_channels).tolist()
-

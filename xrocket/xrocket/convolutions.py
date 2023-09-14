@@ -2,19 +2,21 @@ import torch
 from torch import nn
 
 
-class MiniRocketConv(nn.Module):
-    """Convolutional layer for MiniRocket transformation of timeseries.
+class RocketConv(nn.Module):
+    """Convolutional layer for ROCKET transformation of timeseries.
 
-    This layer serves to transform a timeseries into a set of timeseries
-    of the same length based on convolutional activations.
+    This layer serves to transform an observed input time series into a 
+    set of time series of the same length based on 1D convolutional activations.
     I.e., a forward pass transforms a tensor of shape (Batch * Channels * Timeobs)
     into a tensor of shape (Batch * Kernels * Channels * Timeobs).
 
-    This implementation conforms to the descriptions in:
+    This implementation mostly conforms to the descriptions in:
     Dempster, Angus, Daniel F. Schmidt, and Geoffrey I. Webb.
-    "MiniRocket: A very fast (almost) deterministic transform for time series classification."
-    In Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining,
-    pp. 248-257. 2021.
+    "Minirocket: A very fast (almost) deterministic transform for time series classification."
+    Proceedings of the 27th ACM SIGKDD conference on knowledge discovery & data mining. 2021.
+
+    In contrast to the paper, all convolutional activations are padded such that they
+    match the length of the input sequence instead of randomly applying paddings.
 
     Attributes:
         in_channels: The number of channels going into the convolutions.
