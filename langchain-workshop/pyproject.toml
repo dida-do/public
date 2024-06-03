@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "langchain-workshop"
+description = "Langchain Workshop for dida conference may 31th 2024"
+version = "2024.05.31"
+authors = []
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.9.1,<4.0"
+black = "^24.1.0"
+langchain = "^0.1.6"
+langfuse = "^2.29.0"
+ragas = "^0.1.7"
+pypdf = "^4.2.0"
+qdrant-client = "^1.8.0"
+jupyterlab = "^4.2.1"
+transformers = "^4.40.1"
+python-dotenv = "^1.0.1"
+sentence-transformers = "^3.0.0"
+torch = {version = "^2.3.0+cu118", source = "pytorch"}
+flagembedding = "^1.2.10"
+grandalf = "^0.8"
+wikipedia = "^1.4.0"
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu118"
+priority = "explicit"
+
