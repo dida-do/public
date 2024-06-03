@@ -1,3 +1,5 @@
+To use `langchain-workshop/workshop-lcel.ipynb` and `langchain-workshop/agent_example.ipynb` you need to do the following:
+
 # Download the models
 Run ```download_weights.ipynb``` to donwload ```BAAI/bge-large-en-v1.5``` and ```BAAI/bge-reranker-large```.
 
@@ -27,3 +29,4 @@ LANGFUSE_SECRET_KEY=<LANGFUSE_SECRET_KEY>
 LANGFUSE_PUBLIC_KEY=<LANGFUSE_PUBLIC_KEY>
 LANGFUSE_HOST=https://cloud.langfuse.com
 ```
+You can also add the key in the notebook instead of create the file.
