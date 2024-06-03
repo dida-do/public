@@ -12,6 +12,7 @@
 
 # %%
 import torch
+
 # Check if CUDA is available
 # it is not requires to use cuda.
 torch.cuda.is_available()
@@ -31,7 +32,8 @@ from qdrant_client import models
 import qdrant_client
 import platform
 
-def check_os()->str:
+
+def check_os() -> str:
     """Check the OS of the system"""
     os_name = platform.system()
     return os_name
@@ -39,9 +41,9 @@ def check_os()->str:
 
 # %%
 if check_os() == "Windows":
-    embedding_path="huggingface_models\\BAAI\\bge-large-en-v1.5"
+    embedding_path = "huggingface_models\\BAAI\\bge-large-en-v1.5"
 else:
-    embedding_path="huggingface_models/BAAI/bge-large-en-v1.5"
+    embedding_path = "huggingface_models/BAAI/bge-large-en-v1.5"
 embeddings = HuggingFaceEmbeddings(model_name=embedding_path)
 emb_tokenizer = AutoTokenizer.from_pretrained(embedding_path)
 
@@ -103,7 +105,7 @@ for split in splits:
         chunk_index = 0
         current_title = split.metadata["source"]
     split.metadata["chunk"] = chunk_index
-    split.metadata = {"metadata":split.metadata}
+    split.metadata = {"metadata": split.metadata}
     chunk_index += 1
 
 # %%
@@ -121,4 +123,4 @@ qdrant = Qdrant.from_documents(
 )
 
 # %%
-qdrant.search("self-rag",search_type="similarity",k=5)
+qdrant.search("self-rag", search_type="similarity", k=5)
