@@ -22,6 +22,8 @@ torch = {version = "^2.3.0+cu118", source = "pytorch"}
 flagembedding = "^1.2.10"
 grandalf = "^0.8"
 wikipedia = "^1.4.0"
+arxiv = "^2.1.0"
+pymupdf = "^1.24.5"
 
 [[tool.poetry.source]]
 name = "pytorch"

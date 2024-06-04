@@ -1,7 +1,9 @@
+You can install the requirements with `poetry install `.
+
 To use `langchain-workshop/workshop-lcel.ipynb` and `langchain-workshop/agent_example.ipynb` you need to do the following:
 
 # Download the models
-Run ```download_weights.ipynb``` to donwload ```BAAI/bge-large-en-v1.5``` and ```BAAI/bge-reranker-large```.
+Run ```download_weights.ipynb``` to download ```BAAI/bge-large-en-v1.5``` and ```BAAI/bge-reranker-large```.
 
 # Create Database
 I use qdrant for storing my data. To create the vector database run `create_vector_database.py`
